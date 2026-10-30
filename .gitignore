@@ -1,0 +1,36 @@
+# Environment Configuration
+.env
+.env.*
+!.env.example
+
+# Dependency directory
+node_modules
+
+# Test coverage directory
+coverage
+
+# Ignore Apple macOS Desktop Services Store
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# ngrok tunnel file
+config/tunnel.pid
+
+# vite build output
+dist/
+
+# extensions build output
+extensions/*/build
+
+# SQLite databases
+*.sqlite
+*.sqlite*
+web/database.sqlite
+web/database.sqlite*
+
+# Ignore shopify files created during app dev
+.shopify/*
+.shopify.lock

@@ -1,0 +1,22 @@
+{
+  "blocks": {
+    "countdown_timer": {
+      "name": "Countdown Timer",
+      "settings": {
+        "heading": {
+          "label": "Optional Heading"
+        },
+        "margin_top": {
+          "label": "Top Spacing"
+        },
+        "margin_bottom": {
+          "label": "Bottom Spacing"
+        },
+        "api_url": {
+          "label": "Custom API URL (Optional)",
+          "info": "Leave blank to automatically connect to this app's backend"
+        }
+      }
+    }
+  }
+}

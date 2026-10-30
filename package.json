@@ -1,0 +1,36 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "main": "web/index.js",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "npm run build:widget && npm run build:frontend",
+    "build:frontend": "cd web/frontend && SHOPIFY_API_KEY=${SHOPIFY_API_KEY:-countdown_timer_app} npm run build",
+    "build:widget": "node scripts/build-widget.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@shopify/app": "^3.0.0",
+    "@shopify/cli": "^3.0.0",
+    "esbuild": "^0.28.2",
+    "mongoose": "^9.11.4",
+    "preact": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^5.0.5",
+    "eslint": "^10.13.0",
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

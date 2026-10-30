@@ -1,0 +1,64 @@
+{% comment %}
+  Shopify App Block: Countdown Timer + Analytics
+  Renders promotional countdown timer widget on storefront product pages
+{% endcomment %}
+
+<div
+  id="cda-countdown-timer-widget"
+  class="cda-countdown-mount"
+  data-shop="{{ shop.permanent_domain }}"
+  data-product-id="{% if product %}gid://shopify/Product/{{ product.id }}{% endif %}"
+  data-collection-ids="{% if product %}{% for collection in product.collections %}gid://shopify/Collection/{{ collection.id }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}"
+  data-api-url="{{ block.settings.api_url | default: '' }}"
+  style="margin-top: {{ block.settings.margin_top | default: 8 }}px; margin-bottom: {{ block.settings.margin_bottom | default: 8 }}px;"
+>
+  {% if block.settings.heading != blank %}
+    <div class="cda-block-heading" style="text-align: center; font-weight: bold; margin-bottom: 4px;">
+      {{ block.settings.heading }}
+    </div>
+  {% endif %}
+</div>
+
+{{ 'countdown-timer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:blocks.countdown_timer.name",
+  "target": "section",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:blocks.countdown_timer.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "t:blocks.countdown_timer.settings.margin_top.label",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "t:blocks.countdown_timer.settings.margin_bottom.label",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "api_url",
+      "label": "t:blocks.countdown_timer.settings.api_url.label",
+      "info": "t:blocks.countdown_timer.settings.api_url.info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+# This file stores configurations for your Shopify app.
+name = "Countdown Timer + Analytics"
+client_id = ""
+
+[access_scopes]
+# Least privilege access scope: only read_products is required
+scopes = "read_products"
+
+[application_url]
+# Configured dynamically by Shopify CLI during dev/deploy
+

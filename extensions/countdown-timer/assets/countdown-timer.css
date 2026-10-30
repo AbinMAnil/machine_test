@@ -1,0 +1,140 @@
+/* Countdown Timer + Analytics Storefront Styles */
+.cda-countdown-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  margin: 12px 0;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 48px;
+}
+
+.cda-countdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.cda-countdown-message {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cda-urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #ef4444;
+  color: #ffffff;
+  border-radius: 9999px;
+  animation: cda-pulse 2s infinite;
+}
+
+.cda-countdown-digits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.cda-time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 6px 10px;
+  min-width: 44px;
+}
+
+.cda-time-num {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cda-time-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.cda-time-colon {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+/* Urgency styling when nearing zero */
+.cda-countdown-urgent {
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.4);
+  animation: cda-border-glow 2s infinite;
+}
+
+@keyframes cda-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes cda-border-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cda-urgency-badge,
+  .cda-countdown-urgent {
+    animation: none;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+  .cda-countdown-wrapper {
+    padding: 10px 14px;
+  }
+  .cda-time-box {
+    padding: 4px 6px;
+    min-width: 36px;
+  }
+  .cda-time-num {
+    font-size: 15px;
+  }
+  .cda-countdown-header {
+    font-size: 13px;
+  }
+}
